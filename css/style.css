@@ -1,0 +1,280 @@
+@property --flap-rotation {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --progress {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 20%;
+}
+@property --text {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 1000vh;
+  overflow: hidden;
+}
+
+.text-clamp {
+  text-align: center;
+  font-size: clamp(20px, 5vmin, 100px);
+}
+
+.grid-template {
+  top: 0;
+  left: 0;
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+/* 
+.text-show {
+    animation: reveal-text ease both;
+    animation-timeline: scroll();
+    animation-range: 80%;
+    opacity: var(--text);
+    position: relative;
+    z-index: 10;
+    padding-top: 6cqw;
+    text-align: center;
+    font-size: 5cqw;
+    --tw-text-opacity: 1;
+    color: rgb(248 113 113 / var(--tw-text-opacity));
+} */
+
+.envelope {
+  container: envelope/ inline-size;
+  perspective: 1000px;
+  position: relative;
+  width: 60vmin;
+  aspect-ratio: 16/9;
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+    0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.flap {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  width: 100cqw;
+  height: 30cqw;
+  transform-style: preserve-3d;
+  rotate: x var(--flap-rotation);
+  transform-origin: 50% 0;
+  animation: animate-flap ease both;
+  animation-timeline: scroll();
+  animation-range: 0 60%;
+  z-index: 4;
+  position: relative;
+  transition: top 0.5s ease;
+}
+
+/* Cuando el sobre se abre */
+.envelope.open .flap {
+  animation: animate-flap 0.5s forwards; /* Aplicamos la animación cuando se activa la clase open */
+}
+
+/* Carta que aparece al hacer clic */
+/* Carta que aparece al hacer clic */
+.carta {
+  position: absolute;
+  top: 0; /* Comienza desde la parte superior del sobre */
+  left: 0;
+  width: 100%; /* La carta tiene el mismo ancho que el sobre */
+  height: 120%; /* La carta tiene la misma altura que el sobre */
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  transform: translateY(100%); /* La carta comienza fuera de la vista */
+  opacity: 0; /* La carta comienza invisible */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Transición para la carta */
+  z-index: 5; /* Asegúrate de que la carta esté encima del sobre */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Sombra de la carta */
+  border-radius: 1rem;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+}
+.envelope.open .carta {
+  transform: translateY(
+    0%
+  ); 
+  opacity: 1; 
+  width: 40vw; 
+  height: 50vh; 
+  overflow-y: auto;
+  border-radius: 1em; 
+  position: fixed; 
+  top: 50%; 
+  left: -20%; 
+  transform: translate(-50%, -50%);
+  z-index: 10; 
+
+  /* animation: carta-salir 1s ease-out forwards;  */
+}
+.envelope.open .heart {
+  opacity: 1; /* Hace visible el corazón */
+  transform: translateY(-100%); /* El corazón sube hacia su posición final */
+  animation: show-heart 1s forwards; /* Aparece con una animación */
+  z-index: 5;
+}
+.cursiva {
+    
+        font-family: "Cedarville Cursive", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+
+.face {
+  clip-path: polygon(50% 35%, 100% 0, 100% 100%, 0 100%, 0 0);
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+  inset: 0px;
+  position: absolute;
+  z-index: 3;
+}
+
+.heart {
+  --c: red;
+  position: absolute;
+  width: 50cqw;
+  left: 50%;
+  top: 0;
+  transform: translateY(var(--progress));
+  animation: show-heart ease both;
+  animation-timeline: scroll();
+  animation-range: 60%;
+  margin-left: -25cqw;
+  aspect-ratio: 1/1;
+  z-index: 3;
+  background: radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
+    radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
+    conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0) bottom/100%
+      50% no-repeat;
+}
+
+/* Carta dentro del sobre */
+.carta {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  transform: translateY(100%); /* Inicialmente escondida */
+  opacity: 0; /* Inicialmente invisible */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Animación para que salga */
+  /* background: repeating-linear-gradient(#F1EDE9, #F1EDE9 31px, #94ACD4 31px, #94ACD4 32px);
+    font-size: 22px;
+    line-height: 34px;
+    outline: 0;
+    padding: 35px 50px; */
+}
+
+/* Cuando el sobre se abre, la carta se muestra */
+.envelope.open .carta {
+  transform: translateY(-50%); /* Muestra la carta */
+  opacity: 1; /* Hace la carta visible */
+}
+.texto {
+    font-family: "Hedvig Letters Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* Efecto de apertura del sobre */
+.envelope.open {
+  transform: scale(1.05);
+}
+
+/* Animación de la solapa */
+@keyframes animate-flap {
+  from {
+    --flap-rotation: 0deg;
+  }
+  99% {
+    z-index: 4;
+  }
+  100% {
+    --flap-rotation: 180deg;
+    z-index: 1;
+  }
+}
+
+
+/* Animación de la carta */
+@keyframes show-heart {
+  from {
+    --progress: 20%;
+  }
+  to {
+    --progress: -90%;
+  }
+}
+
+@keyframes reveal-text {
+  from {
+    --text: 0;
+  }
+  to {
+    --text: 1;
+  }
+}
+/* Media Query para pantallas más pequeñas (móviles) */
+@media screen and (max-width: 600px) {
+  .envelope.open .carta {
+    width: 85vw; /* Un 90% del ancho de la ventana */
+    height: 70vh; /* 70% de la altura de la ventana */
+    max-width: 500px; /* El máximo ancho será de 500px */
+    min-width: 250px; /* Ancho mínimo más pequeño */
+    max-height: 75vh; /* Máxima altura de la carta será del 75% de la pantalla */
+  }
+}
+/* Media Query para pantallas medianas (tabletas) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .envelope.open .carta {
+    width: 80vw; /* 80% del ancho de la ventana */
+    height: 60vh; /* 60% de la altura de la ventana */
+    max-width: 650px; /* Ancho máximo de 650px */
+    min-width: 320px; /* Ancho mínimo para tabletas */
+    max-height: 70vh; /* Altura máxima de la carta será el 70% de la altura de la pantalla */
+    top: 50%; /* Posiciona la carta en el centro vertical */
+    left: 50%; /* Posiciona la carta en el centro horizontal */
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Media Query para pantallas grandes (escritorios y laptops grandes) */
+@media screen and (min-width: 1025px) {
+  .envelope.open .carta {
+    width: 60vw; /* Un 60% del ancho de la ventana */
+    height: 50vh; /* 50% de la altura de la ventana */
+    max-width: 800px; /* El máximo ancho será de 800px */
+    min-width: 400px; /* El ancho mínimo será de 400px */
+    max-height: 60vh; /* La carta puede ser más pequeña en altura */
+    top: 50%; /* Posiciona la carta en el centro vertical */
+    left: 50%; /* Posiciona la carta en el centro horizontal */
+    transform: translate(-50%, -50%);
+  }
+}
