@@ -230,6 +230,7 @@ body {
     max-width: 500px; /* El máximo ancho será de 500px */
     min-width: 250px; /* Ancho mínimo más pequeño */
     max-height: 75vh; /* Máxima altura de la carta será del 75% de la pantalla */
+    z-index: 4;
   }
 }
 /* Media Query para pantallas medianas (tabletas) */
