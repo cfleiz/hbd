@@ -216,7 +216,7 @@ body {
     z-index: 4;
   }
   100% {
-    --flap-rotation: 100deg;
+    --flap-rotation: 180deg;
     z-index: 1;
   }
 }
@@ -237,9 +237,9 @@ body {
     width: 100cqw;
     height: 30cqw;
     transform-style: preserve-3d;
-    rotate: x var(--flap-rotation);
     transform-origin: 50% 0;
-    animation-timeline: scroll();
+    rotate: x var(100);
+    animation: animate-flap ease both;
     animation-range: 0 50%;
      z-index: 4; 
     position: relative;
