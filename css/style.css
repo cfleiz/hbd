@@ -6,7 +6,7 @@
 @property --progress {
   syntax: "<percentage>";
   inherits: false;
-  initial-value: 20%;
+  initial-value: 10%;
 }
 @property --text {
   syntax: "<number>";
@@ -164,7 +164,7 @@ body {
   animation-range: 60%;
   margin-left: -25cqw;
   aspect-ratio: 1/1;
-  z-index: 6;
+  z-index: 1;
   background: radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
     radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
     conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0) bottom/100%
@@ -249,6 +249,24 @@ body {
     max-width: 500px; /* El máximo ancho será de 500px */
     min-width: 250px; /* Ancho mínimo más pequeño */
     max-height: 75vh; /* Máxima altura de la carta será del 75% de la pantalla */
+  }
+  .heart {
+    --c: red;
+    position: absolute;
+    width: 50cqw;
+    left: 50%;
+    top: 0;
+    transform: translateY(var(--progress));
+    animation: show-heart ease both;
+    /* animation-timeline: scroll(); */
+    animation-range: 60%;
+    margin-left: -25cqw;
+    aspect-ratio: 1/1;
+    z-index: 6;
+    background: radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
+      radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
+      conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0) bottom/100%
+        50% no-repeat;
   }
 }
 /* Media Query para pantallas medianas (tabletas) */
