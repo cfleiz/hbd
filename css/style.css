@@ -223,13 +223,13 @@ body {
 
 @keyframes animate-flap-d {
   from {
-    --flap-rotation: 0deg;
+    --flap-rotation-d: 0deg;
   }
   99% {
     z-index: 4;
   }
   100% {
-    --flap-rotation: 0deg;
+    --flap-rotation-d: 0deg;
     z-index: 1;
   }
 }
