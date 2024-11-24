@@ -217,30 +217,11 @@ body {
     z-index: 4;
   }
   100% {
-    --flap-rotation: 180deg;
+    --flap-rotation: 100deg;
     z-index: 1;
   }
 }
 
-
-/* Animación de la carta */
-@keyframes show-heart {
-  from {
-    --progress: 10%;
-  }
-  to {
-    --progress: -90%;
-  }
-}
-
-@keyframes reveal-text {
-  from {
-    --text: 0;
-  }
-  to {
-    --text: 1;
-  }
-}
 /* Media Query para pantallas más pequeñas (móviles) */
 @media screen and (max-width: 600px) {
   .envelope.open .carta {
