@@ -164,7 +164,7 @@ body {
   animation-range: 60%;
   margin-left: -25cqw;
   aspect-ratio: 1/1;
-  z-index: 1;
+  z-index: 6;
   background: radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
     radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
     conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0) bottom/100%
