@@ -125,7 +125,7 @@ body {
   top: 50%; 
   left: -20%; 
   transform: translate(-50%, -50%);
-  z-index: 4; 
+  z-index: 10; 
 
   /* animation: carta-salir 1s ease-out forwards;  */
 }
@@ -222,6 +222,25 @@ body {
   }
 }
 
+
+/* Animación de la carta */
+@keyframes show-heart {
+  from {
+    --progress: 20%;
+  }
+  to {
+    --progress: -90%;
+  }
+}
+
+@keyframes reveal-text {
+  from {
+    --text: 0;
+  }
+  to {
+    --text: 1;
+  }
+}
 /* Media Query para pantallas más pequeñas (móviles) */
 @media screen and (max-width: 600px) {
   .envelope.open .carta {
