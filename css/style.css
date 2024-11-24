@@ -152,7 +152,7 @@ body {
   z-index: 3;
 }
 
-/* .heart {
+.heart {
   --c: red;
   position: absolute;
   width: 50cqw;
@@ -168,7 +168,7 @@ body {
     radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
     conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0) bottom/100%
       50% no-repeat;
-} */
+}
 
 /* Carta dentro del sobre */
 .carta {
