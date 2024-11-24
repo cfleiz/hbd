@@ -1,4 +1,4 @@
-@property --flap-rotation {
+/* @property --flap-rotation {
   syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
@@ -12,7 +12,7 @@
   syntax: "<number>";
   inherits: false;
   initial-value: 0;
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -81,7 +81,7 @@ body {
   animation: animate-flap ease both;
   animation-timeline: scroll();
   animation-range: 0 60%;
-  z-index: -10;
+  z-index: 4;
   position: relative;
   transition: top 0.5s ease;
 }
