@@ -214,16 +214,13 @@ body {
     --flap-rotation: 0deg;
   }
   99% {
-    z-index: 4;
+    z-index: 1;
   }
   100% {
     --flap-rotation: 180deg;
     z-index: 1;
   }
 }
-
-
-
 
 /* Media Query para pantallas más pequeñas (móviles) */
 @media screen and (max-width: 600px) {
