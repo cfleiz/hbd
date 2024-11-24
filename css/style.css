@@ -81,7 +81,7 @@ body {
   animation: animate-flap ease both;
   animation-timeline: scroll();
   animation-range: 0 60%;
-  z-index: 4;
+  z-index: 1;
   position: relative;
   transition: top 0.5s ease;
 }
@@ -214,7 +214,7 @@ body {
     --flap-rotation: 0deg;
   }
   99% {
-    z-index: 1;
+    z-index: 4;
   }
   100% {
     --flap-rotation: 180deg;
