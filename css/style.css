@@ -219,7 +219,7 @@ body {
     --flap-rotation: 80deg;
   }
   100% {
-    --flap-rotation: 180deg;
+    --flap-rotation: 0deg;
     z-index: 1;
   }
 }
