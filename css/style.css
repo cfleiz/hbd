@@ -215,6 +215,9 @@ body {
   99% {
     z-index: 4;
   }
+  50% {
+    --flap-rotation: 80deg;
+  }
   100% {
     --flap-rotation: 180deg;
     z-index: 1;
