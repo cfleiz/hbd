@@ -215,9 +215,6 @@ body {
   99% {
     z-index: 4;
   }
-  50% {
-    --flap-rotation: 80deg;
-  }
   100% {
     --flap-rotation: 0deg;
     z-index: 1;
@@ -232,6 +229,21 @@ body {
     max-width: 500px; /* El máximo ancho será de 500px */
     min-width: 250px; /* Ancho mínimo más pequeño */
     max-height: 75vh; /* Máxima altura de la carta será del 75% de la pantalla */
+  }
+  .flap {
+    --tw-bg-opacity: 1;
+    background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    width: 100cqw;
+    height: 30cqw;
+    transform-style: preserve-3d;
+    rotate: x var(--flap-rotation);
+    transform-origin: 50% 0;
+    animation-timeline: scroll();
+    animation-range: 0 50%;
+     z-index: 4; 
+    position: relative;
+    transition: top 0.5s ease;
   }
 }
 /* Media Query para pantallas medianas (tabletas) */
