@@ -80,7 +80,7 @@ body {
   transform-origin: 50% 0;
   animation: animate-flap ease both;
   animation-timeline: scroll();
-  animation-range: 0 60%;
+  animation-range: 0 50%;
   z-index: 5;
   position: relative;
   transition: top 0.5s ease;
