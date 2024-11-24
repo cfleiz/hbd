@@ -209,7 +209,7 @@ body {
 }
 
 /* Animación de la solapa */
-@keyframes animate-flap {
+/* @keyframes animate-flap {
   from {
     --flap-rotation: 0deg;
   }
@@ -220,7 +220,7 @@ body {
     --flap-rotation: 180deg;
     z-index: 1;
   }
-}
+} */
 
 /* Media Query para pantallas más pequeñas (móviles) */
 @media screen and (max-width: 600px) {
@@ -230,10 +230,6 @@ body {
     max-width: 500px; /* El máximo ancho será de 500px */
     min-width: 250px; /* Ancho mínimo más pequeño */
     max-height: 75vh; /* Máxima altura de la carta será del 75% de la pantalla */
-  }
-  .flap {
-    --flap-rotation: 0deg;
-    transform: rotateX(0deg);
   }
 }
 /* Media Query para pantallas medianas (tabletas) */
