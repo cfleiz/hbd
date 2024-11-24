@@ -164,7 +164,7 @@ body {
   animation-range: 60%;
   margin-left: -25cqw;
   aspect-ratio: 1/1;
-  z-index: 3;
+  z-index: 2;
   background: radial-gradient(at 70% 31%, var(--c) 29%, #0000 30%),
     radial-gradient(at 30% 31%, var(--c) 29%, #0000 30%),
     conic-gradient(from -45deg at 50% 84%, var(--c) 90deg, #0000 0) bottom/100%
@@ -217,7 +217,7 @@ body {
     z-index: 4;
   }
   100% {
-    --flap-rotation: 100deg;
+    --flap-rotation: 180deg;
     z-index: 1;
   }
 }
