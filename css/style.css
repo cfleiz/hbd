@@ -6,7 +6,7 @@
 @property --progress {
   syntax: "<percentage>";
   inherits: false;
-  initial-value: 10%;
+  initial-value: 20%;
 }
 @property --text {
   syntax: "<number>";
@@ -81,7 +81,7 @@ body {
   animation: animate-flap ease both;
   animation-timeline: scroll();
   animation-range: 0 50%;
-  z-index: 5;
+  z-index: 4;
   position: relative;
   transition: top 0.5s ease;
 }
