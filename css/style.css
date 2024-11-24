@@ -226,7 +226,7 @@ body {
 /* Animación de la carta */
 @keyframes show-heart {
   from {
-    --progress: 20%;
+    --progress: 10%;
   }
   to {
     --progress: -90%;
