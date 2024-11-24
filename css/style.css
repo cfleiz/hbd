@@ -221,6 +221,19 @@ body {
   }
 }
 
+@keyframes animate-flap-d {
+  from {
+    --flap-rotation: 0deg;
+  }
+  99% {
+    z-index: 4;
+  }
+  100% {
+    --flap-rotation: 0deg;
+    z-index: 1;
+  }
+}
+
 /* Media Query para pantallas más pequeñas (móviles) */
 @media screen and (max-width: 600px) {
   .envelope.open .carta {
@@ -238,7 +251,7 @@ body {
     height: 30cqw;
     transform-style: preserve-3d;
     transform-origin: 50% 0;
-    rotate: x var(100);
+    rotate: x var(animate-flap-d);
     animation: animate-flap ease both;
     animation-range: 0 50%;
      z-index: 4; 
