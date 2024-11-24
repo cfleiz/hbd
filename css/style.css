@@ -81,7 +81,7 @@ body {
   animation: animate-flap ease both;
   animation-timeline: scroll();
   animation-range: 0 60%;
-  z-index: 1;
+  z-index: -1;
   position: relative;
   transition: top 0.5s ease;
 }
@@ -209,7 +209,7 @@ body {
 }
 
 /* Animación de la solapa */
-/* @keyframes animate-flap {
+@keyframes animate-flap {
   from {
     --flap-rotation: 0deg;
   }
@@ -220,7 +220,7 @@ body {
     --flap-rotation: 180deg;
     z-index: 1;
   }
-} */
+}
 
 /* Media Query para pantallas más pequeñas (móviles) */
 @media screen and (max-width: 600px) {
